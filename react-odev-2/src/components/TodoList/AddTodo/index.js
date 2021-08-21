@@ -8,12 +8,12 @@ function AddTodo({ setTodos, todos }) {
     setTodoItem(defaultTodo);
   }, [todos]);
 
-  const onChangeInput = (e) => {
-    setTodoItem({ ...todoItem, text: e.target.value });
+  const onChangeInput = (event) => {
+    setTodoItem({ ...todoItem, text: event.target.value });
   };
 
-  const onSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = (event) => {
+    event.preventDefault();
 
     if (todoItem.text === "") {
       alert("Write something!");

@@ -15,29 +15,22 @@ function Footer({ todos, setTodos, active, setActive }) {
         <ul className="filters">
           <li>
             <a
-              onClick={() => {
-                setActive("All");
-              }}
-              className={active === "All" ? "selected" : ""}
-            >
+              onClick={() => setActive("All")}
+              className={active === "All" ? "selected" : ""}>
               All
             </a>
           </li>
           <li>
             <a
-              onClick={() => {
-                setActive("Active");
-              }}
-              className={active === "Active" ? "selected" : ""}
-            >
+              onClick={() => setActive("Active")}
+              className={active === "Active" ? "selected" : ""}>
               Active
             </a>
           </li>
           <li>
             <a
               onClick={() => setActive("Completed")}
-              className={active === "Completed" ? "selected" : ""}
-            >
+              className={active === "Completed" ? "selected" : ""}>
               Completed
             </a>
           </li>
