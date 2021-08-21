@@ -8,31 +8,27 @@ function AddTodo({ setTodos, todos }) {
     setTodoItem(defaultTodo);
   }, [todos]);
 
-  const onChangeInput = (event) => {
-    setTodoItem({ ...todoItem, text: event.target.value });
-  };
+  const onChangeInput = event => setTodoItem({ ...todoItem, text: event.target.value });
 
-  const onSubmit = (event) => {
+  const onSubmit = event => {
     event.preventDefault();
-
-    if (todoItem.text === "") {
-      alert("Write something!");
-      return false;
+    if (!todoItem.text.length) {
+      alert("Not recommended to be empty!");
+      return;
     }
     setTodos([...todos, todoItem]);
-    console.log(todoItem);
   };
 
   return (
     <div className="search-input">
       <form onSubmit={onSubmit}>
         <input
+          autoFocus
           name="text"
           className="new-todo"
-          placeholder="What needs to be done?"
-          onChange={onChangeInput}
-          autoFocus
           value={todoItem.text}
+          onChange={onChangeInput}
+          placeholder="What needs to be done?"
         />
       </form>
     </div>

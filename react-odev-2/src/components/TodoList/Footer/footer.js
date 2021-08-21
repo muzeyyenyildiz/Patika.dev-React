@@ -1,9 +1,9 @@
 import React from "react";
 
-function Footer({ todos, setTodos, active, setActive }) {
+function Footer({ todos, setTodos, active, setActive, menus }) {
   
   const clearAllCompleted = () =>
-    setTodos(todos.filter((item) => !item.completed));
+    setTodos(todos.filter(item => !item.completed));
 
   return (
     <div>
@@ -13,27 +13,16 @@ function Footer({ todos, setTodos, active, setActive }) {
         </span>
 
         <ul className="filters">
-          <li>
-            <a
-              onClick={() => setActive("All")}
-              className={active === "All" ? "selected" : ""}>
-              All
-            </a>
-          </li>
-          <li>
-            <a
-              onClick={() => setActive("Active")}
-              className={active === "Active" ? "selected" : ""}>
-              Active
-            </a>
-          </li>
-          <li>
-            <a
-              onClick={() => setActive("Completed")}
-              className={active === "Completed" ? "selected" : ""}>
-              Completed
-            </a>
-          </li>
+          {menus.map((item, index) => (
+            <li key={index}>
+              <a
+                onClick={() => setActive(item)}
+                className={active === item ? "selected" : ""}
+              >
+                {item}
+              </a>
+            </li>
+          ))}
         </ul>
 
         <button onClick={() => clearAllCompleted()} className="clear-completed">

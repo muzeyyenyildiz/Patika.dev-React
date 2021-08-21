@@ -1,16 +1,10 @@
-import TodoList from './components/TodoList/index';
-
-
+import TodoList from "./components/TodoList/index";
 
 function App() {
   return (
-    
     <div>
-        <TodoList/>
-
+      <TodoList />
     </div>
-
-
   );
 }
 
