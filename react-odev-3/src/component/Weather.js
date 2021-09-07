@@ -2,9 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import MyContext from "../context/MyContext";
 import axios from "axios";
 
-
-
-function HavaDurumu() {
+function Weather() {
   const [weatherdata, setWeatherdata] = useState();
   const [loading, setLoading] = useState(true);
   const { city } = useContext(MyContext);
@@ -13,22 +11,19 @@ function HavaDurumu() {
     const key = process.env.REACT_APP_WEATHER_API_KEY;
 
     const lang = navigator.language.split("-")[0];
-    console.log(lang);
 
     try {
-
-      setLoading(true)
+      setLoading(true);
 
       const { data } = await axios.get(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly&appid=${key}&lang=${lang}&units=metric`
       );
       setTimeout(() => {
         setWeatherdata(data);
-        setLoading(false)
+        setLoading(false);
       }, 1000);
-      console.log(data);
     } catch {
-      setLoading(false)
+      setLoading(false);
       alert("Bir sorun oluştu!");
     }
   };
@@ -40,7 +35,7 @@ function HavaDurumu() {
   }, [city]);
 
   if (loading) {
-    return <p style={{color:"white"}}>Loading...</p>;
+    return <p style={{ color: "white" }}>Loading...</p>;
   }
 
   return (
@@ -67,4 +62,4 @@ function HavaDurumu() {
   );
 }
 
-export default HavaDurumu;
+export default Weather;
