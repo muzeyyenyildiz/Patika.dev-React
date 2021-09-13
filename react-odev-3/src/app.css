@@ -2,19 +2,20 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Azeret Mono", monospace;
-}
-.app {
-  height: 100vh;
-  text-align: center;
+  background-color: #514243;
   background-image: url(./img/backgroundnew.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: center;
 }
+.app {
+  height: 100%;
+  text-align: center;
+}
 
-.container {
+.container_weather {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -26,21 +27,19 @@ body {
 .city-select {
   padding: 10px;
   border: 1px solid #ffb868;
-  border-radius: 5px;
-  font-size: 15px;
+  border-radius: 10px;
   color: #6b7c87;
-  text-align: start;
   background-color: #fcddbb;
   font-family: "Azeret Mono", monospace;
 }
 
-.container .weather-container {
+.container_weather .weather-container {
   border: 1px solid #f8ba93;
   border-radius: 15px;
   color: white;
   text-align: center;
   min-width: 150px;
-  max-width: 150px;
+  max-width: 200px;
   min-height: 300px;
   padding: 20px;
   margin-top: 15px;
@@ -48,9 +47,12 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  margin-right: 20px;
 }
 
-.weather-container h5 {
+.weather-container h5,
+h4,
+p {
   margin: 5px;
   font-size: 20px;
   font-variant: small-caps;

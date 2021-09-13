@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import MyContext from "../context/MyContext";
+import { Form } from "react-bootstrap";
 
 function Header() {
   const { city, cities, setCity } = useContext(MyContext);
-  
 
   const changeCity = (e) => {
     const selectedCity = cities.find((i) => i.name === e.target.value);

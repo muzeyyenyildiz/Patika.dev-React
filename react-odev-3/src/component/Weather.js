@@ -1,6 +1,8 @@
 import { useState, useEffect, useContext } from "react";
 import MyContext from "../context/MyContext";
 import axios from "axios";
+import { Container, Row, Col } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Weather() {
   const [weatherdata, setWeatherdata] = useState();
@@ -39,26 +41,31 @@ function Weather() {
   }
 
   return (
-    <div className="container">
-      <p> </p>
-      {weatherdata.daily.map((item, index) => (
-        <div key={index} className="weather-container">
-          <h4>
-            {new Date(item.dt * 1000).toLocaleString("tr-TR", {
-              weekday: "long",
-            })}
-          </h4>
-          <div className="img-container">
-            <img
-              src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
-            />
-          </div>
-          <h5>{item.weather[0].description}</h5>
-          <div>{`${item.temp.max}°C`}</div>
-          <div>{`${item.temp.min}°C`}</div>
-        </div>
-      ))}
-    </div>
+    <Container
+      fluid
+      text-align
+      className="container_weather justify-content-md-center"
+    >
+      <Row className="justify-content-md-center">
+        {weatherdata.daily.map((item, index) => (
+          <Col key={index} className="weather-container">
+            <h4>
+              {new Date(item.dt * 1000).toLocaleString("tr-TR", {
+                weekday: "long",
+              })}
+            </h4>
+            <div className="img-container">
+              <img
+                src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
+              />
+            </div>
+            <h5>{item.weather[0].description}</h5>
+            <div>{`${item.temp.max}°C`}</div>
+            <div>{`${item.temp.min}°C`}</div>
+          </Col>
+        ))}
+      </Row>
+    </Container>
   );
 }
 
